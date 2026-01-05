@@ -1,4 +1,4 @@
-# m5core2v11_i2c_term01
+# m5core2v11_i2c_term
 I2C device access tool for M5Stack Core2 V1.1
 
 ## usage:
@@ -7,4 +7,4 @@ I2C device access tool for M5Stack Core2 V1.1
 
 
 ## difference from Uno_i2c_term
-- To compile, set as "Board:M5Core2". 
+- To compile, set as "Board:M5Core2" on the Arduino IDE. 
