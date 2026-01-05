@@ -1,0 +1,53 @@
+ 
+   TeraTermで 115200bps設定で Arduinoの COMx に接続します。
+
+
+I2C access JIG   2021-4 by Sakamoto
+>>
+>
+>
+>
+>?     ←─────── "?" でヘルプ表示 
+ a : set slave address
+ s : set byte(s) data to write
+ c : set count bytes to read
+ r : read access
+ w : write access
+ p : show current parameters
+ 0 : reset i2c I/F
+ ? : show help
+read/write bytes count is 128 bytes max.
+>
+
+
+>
+>a      ←─────── "a" <enter>  の次に、スレーブアドレスを設定する 00～7F
+Enter slave address of target(hex):40
+adr=0x40
+>
+>s    ←─────── "s" <enter>  の次に、送信データ列を入れる
+Enter data bytes to write, or '.' for quit.
+[00]>40
+[01]>00
+[02]>cc
+[03]>.       ←─────── "." <enter> で抜ける
+data: 0x03 bytes
+>
+>p         ←─────── "p" <enter> で現在の設定を表示
+target adr = 0x40
+data for write: 40 00 CC
+read count = 0x00
+>
+>c        ←─────── "c" <enter> のつぎに readのときのバイト数を設定
+Enter count(bytes) to read(hex):3
+count=0x03
+>
+>w   ←─────── "w" <enter> で書き込み (送信)アクセスを実行 (相手無反応のときは"NACK"表示)
+return=0x0000
+>
+>r         ←─────── "r" <enter> で読み出し(受信)アクセスを実行
+return=0x0003
+read data:
+40 CC FF
+>
+>
