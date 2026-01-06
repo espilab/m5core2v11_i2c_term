@@ -36,7 +36,7 @@ void init_uart(void);
 //---------- i2cmaster functions ----------
 void init_i2c(void);
 uint8_t i2c_write(uint8_t adr, uint8_t *data, int8_t len);
-uint8_t i2c_read(uint8_t adr, uint8_t *data, int8_t len);
+size_t i2c_read(uint8_t adr, uint8_t *data, int8_t len);
 uint8_t i2c_stopCond(void);
 void i2c_deviceList(void);
 

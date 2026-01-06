@@ -30,13 +30,14 @@ uint8_t i2c_write(uint8_t adr, uint8_t *data, int8_t len){
 }
 
 // i2c read
-uint8_t i2c_read(uint8_t adr, uint8_t *data, int8_t len){
-  uint8_t j,ret;
+size_t i2c_read(uint8_t adr, uint8_t *data, int8_t len){
+  uint8_t j;
+  size_t ret;
   j = 0;
   ret = Wire.requestFrom((int)adr, (int)len);
   while (Wire.available()){
     char c = Wire.read();
-    data[j] = c;
+    data[j] = (uint8_t)c;
     j++;
   }
   return ret;

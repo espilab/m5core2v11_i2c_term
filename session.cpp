@@ -119,6 +119,7 @@ void process_command(uint8_t *cmdline, int8_t len){
 	bool quit;
 	uint8_t data;
 	uint8_t stat;
+	size_t stat_r;
 
 
 
@@ -149,11 +150,11 @@ void process_command(uint8_t *cmdline, int8_t len){
 			}
 			break;
 		case 'r':
-			stat = i2c_read(TARGET_ADR, I2C_RD_BUF, RD_CNT);
-			//hexstr(stat, str);	
+			stat_r = i2c_read(TARGET_ADR, I2C_RD_BUF, RD_CNT);
+			//hexstr((uint16_t)stat_r, str);	
 			//uart_sendstr("return=0x");	uart_sendstr(str);	uart_sendstr(" \r\n");
-      //Serial.print("(return=");  Serial.print(stat);  Serial.println(")");
-			if (stat > 0){
+      //Serial.print("(return=");  Serial.print(stat_r);  Serial.println(")");
+			if (stat_r > 0){
 				Serial.println("ok");
 			} else {
 			  Serial.println("No response");
